@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Music History</title>
+  <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+  <!-- NAV BAR -->
+  <div class="conatiner-fluid">
+    <div class="row">
+      <div class="col-md-1"> </div>
+      <div id="navbar" class="col-md-10">
+        <ul>
+          <li class = "col-md-2"><a href="index.html"> View Music </a></li>
+    	    <li class = "col-md-2"><a id="showAddMusic"> Add Music </a></li>
+    	    <li class = "col-md-2"><a href="index.html"> Profile   </a></li>
+        </ul>
+      </div>
+      <div class="col-md-1"> </div>
+    </div>
+  </div>
+
+  <div class="container hidden" id="addMusicField">
+    <input type="text" placeholder="Song Name">
+    <input type="text" placeholder="Artist">
+    <input type="text" placeholder="Album Name">
+    <button type="button"> Add </button>
+  </div>
+
+<!-- MAIN CONTAINER HAS OPTIONS AND SONG LIST -->
+  <div class="container" id="mainContainer">
+    <div class="col-md-1"> </div>
+
+<!-- OPTIONS SECTIONS STARTS HERE  -->
+    <section class = "col-md-2" id="optionsSideBar">
+<!-- SONG LENGTH BAR -->
+      <label for="songLength">Song length:</label>
+      <input type="range" name="songLength">
+
+<!-- Artist scrolling list -->
+      <label for="artistList"> Artist:</label>
+      <select name="artistList" id="artistList"> </select>
+<!-- Bring in options list here ie: <option value:"artistName"> artistName </option> -->
+
+<!-- albums scrolling list -->
+      <label for="albumList"> Album: </label>
+      <select name="albumList" id="albumList"> </select>
+<!-- BRING IN OPTIONS FOR ALBUM SELECTIONS -->
+
+
+<!-- Genre selector butttons "Rock", "Classical", "Alt", "Country", "Pop", "Hip-Hop" -->
+
+      <label for="genreDiv"> Genre: </label>
+      <div name="genreDiv" id="genreDiv">
+
+      <div class="row">
+
+        <div class="col-sm-1"> </div>
+        <label class="radio-inline lineOfGenre"><input type="radio" name="genre"> Rock </label>
+        <label class="radio-inline lineOfGenre"><input type="radio" name="genre">Classical </label>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-1"> </div>
+        <label class="radio-inline lineOfGenre"><input type="radio" name="genre"> Alt</label>
+        <label class="radio-inline lineOfGenre"><input type="radio" name="genre"> Country</label>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-1"> </div>
+        <label class="radio-inline lineOfGenre"><input type="radio" name="genre"> Pop </label>
+        <label class="radio-inline lineOfGenre"><input type="radio" name="genre"> Hip-Hop </label>
+
+      </div>
+
+<!-- Button to Filter songs by above criteria -->
+      <div class="row">
+
+        <div class="col-md-3"> </div>
+        <button type="button" name="filter" class="col-md-4"> Filter </button>
+
+      </div>
+    </section>
+
+
+<!-- SONGS AND SONG INFO -->
+    <section class="col-md-8" id="songList">
+<!-- Song Name, Artist Name, Album Name, Genre Dynamicaly created here -->
+
+    </section>
+  </div>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="songs.js"> </script>
+</body>
+</html>
