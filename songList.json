@@ -1,0 +1,40 @@
+[
+  { "songName" : "Pancho and Lefty",
+    "artist"   : "Townes Van Zandt",
+    "album"    : "Live at the Old Quarter",
+    "genre"    : "Country"
+  },
+  { "songName" : "Neon Bible",
+    "artist"   : "Arcade Fire",
+    "album"    : "Neon Bible",
+    "genre"    : "Alt"
+  },
+  { "songName" : "Float On",
+    "artist"   : "Modest Mouse",
+    "album"    : "Good News for People Who Love Bad News",
+    "genre"    : "Alt"
+  },
+  { "songName" : "Give It Up",
+    "artist"   : "KC and the Sunshine Band",
+    "album"    : "All in a Night's Work",
+    "genre"    : "pop"
+  },
+  {
+    "songName" : "Blue Monday",
+    "artist"   : "New Order",
+    "album"    : "New Order",
+    "genre"    : "Pop"
+  },
+  {
+    "songName" : "Two Weeks",
+    "artist"   : "Grizzly Bear",
+    "album"    : "Veckatimest",
+    "genre"    : "Alt"
+  },
+  {
+    "songName" : "Kaw-Liga",
+    "artist"   : "Hank Williams",
+    "album"    : "Hank Williams",
+    "genre"    : "Country"
+  }
+]
