@@ -15,21 +15,39 @@
       <div class="col-md-1"> </div>
       <div id="navbar" class="col-md-10">
         <ul>
-          <li class = "col-md-2"><a href="index.html"> View Music </a></li>
-    	    <li class = "col-md-2"><a id="showAddMusic"> Add Music </a></li>
+          <li class = "col-md-2"><a class="showAddMusic"> View Music </a></li>
+    	    <li class = "col-md-2"><a class="showAddMusic"> Add Music </a></li>
     	    <li class = "col-md-2"><a href="index.html"> Profile   </a></li>
         </ul>
       </div>
       <div class="col-md-1"> </div>
     </div>
   </div>
-
+<!-- ADD MUSIC CONTAINER -->
   <div class="container hidden" id="addMusicField">
-    <input type="text" placeholder="Song Name">
-    <input type="text" placeholder="Artist">
-    <input type="text" placeholder="Album Name">
-    <button type="button"> Add </button>
+    <div class="row">
+      <input type="text" id="addSongName" class="addMusicInputs col-md-push-4 col-md-3" placeholder="Song Name">
+    </div>
+
+    <div class="row">
+      <input type="text" id="addArtistName" class="addMusicInputs col-md-push-4 col-md-3" placeholder="Artist">
+    </div>
+
+    <div class="row">
+      <input type="text" id="addAlbumName" class="addMusicInputs col-md-push-4 col-md-3" placeholder="Album Name">
+    </div>
+
+    <div class="row">
+      <input type="text" id="addGenreName" class="addMusicInputs col-md-push-4 col-md-3" placeholder="Genre Name">
+    </div>
+
+    <div class="row">
+      <button type="button" id="addSong" class="addMusicInputs col-md-push-4 col-md-2"> Add </button>
+    </div>
+
   </div>
+<!-- END OF ADD MUSIC -->
+
 
 <!-- MAIN CONTAINER HAS OPTIONS AND SONG LIST -->
   <div class="container" id="mainContainer">
@@ -98,6 +116,7 @@
     </section>
   </div>
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="songs.js"> </script>
+<script src="generateSongs.js"> </script>
+<script src="addSong.js"></script>
 </body>
 </html>

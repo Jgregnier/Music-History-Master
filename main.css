@@ -5,6 +5,15 @@
 	border: solid black 2px;
 }
 
+#addMusicField {
+  display: block;
+}
+
+.addMusicInputs {
+	border: solid black 1px;
+	margin: 10px;
+}
+
 #mainContainer {
 	margin: 0px;
 	padding: 0px;

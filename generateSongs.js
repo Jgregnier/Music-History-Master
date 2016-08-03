@@ -1,10 +1,12 @@
-$("#showAddMusic").click(function () {
+$(".showAddMusic").click(function () {
   $("#addMusicField").toggleClass('hidden');
   $("#mainContainer").toggleClass('hidden');
 });
 
 var songList = $.ajax("songList.json").done(function () {
+
   console.log(songList.responseJSON);
+
   songArray = songList.responseJSON;
 
   for(var i = 0; i < songArray.length; i++) {
