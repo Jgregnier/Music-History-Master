@@ -42,6 +42,18 @@
       "artist"   : "Hank Williams",
       "album"    : "Hank Williams",
       "genre"    : "Country"
+    },
+    {
+      "songName" : "Mind Playing Tricks On Me",
+      "artist"   : "Gheto Boys",
+      "album"    : "We Can't Be Stopped",
+      "genre"    : "Hip-Hop"
+    },
+    {
+      "songName" : "Smells Like Teen Spirit",
+      "artist"   : "Nirvana",
+      "album"    : "Nevermind",
+      "genre"    : "Rock"
     }
   ]
 }

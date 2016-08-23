@@ -1,13 +1,13 @@
 "use strict";
 
 var activateEvents = require('./events');
+var addFiltering = require('./filtering');
 
 var songArray = [];
 
 var loadSongs = function () {
   $.ajax("songList.json").done(function (data) {
     songArray = data.songs;
-    console.log("heres the song array after ajax", songArray);
     populateSongs(songArray);
     return songArray;
   });
@@ -18,8 +18,11 @@ var getSongs = function () {
 };
 
 var populateSongs = function (songArray) {
-  console.log("populating songs array", songArray);
-  for(var i = 0; i < songArray.length; i++) {
+  var artistList = [];
+  var albumList = [];
+  var genreList = [];
+
+  for(let i = 0; i < songArray.length; i++) {
     $("#songList").append(
       `<div class="songInfo">
         <h1 class="songName"> ${songArray[i].songName} </h1>
@@ -33,14 +36,24 @@ var populateSongs = function (songArray) {
         </div>
       </div>`);
 
-    $("#artistList").append(
-      `<option value:"${songArray[i].artist}"> ${songArray[i].artist} </option>`
-      );
-
-    $("#albumList").append(
-      `<option value:"${songArray[i].album}"> ${songArray[i].album} </option>`
-      );
+    artistList.push(songArray[i].artist);
+    albumList.push(songArray[i].album);
+    genreList.push(songArray[i].genre);
   }
+
+  function unique(array) {
+  var result = [];
+  $.each(array, function(i, e) {
+    if ($.inArray(e, result) == -1) result.push(e);
+  });
+  return result;
+  }
+
+  addFiltering.populateArtist(unique(artistList).sort());
+  addFiltering.populateAlbum(unique(albumList).sort());
+  addFiltering.populateGenre(unique(genreList).sort());
+
+  addFiltering.addFiltering();
   activateEvents();
 };
 
