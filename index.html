@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
-  <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="dist/main.css">
 </head>
 
 <body>
@@ -15,21 +15,49 @@
       <div class="col-md-1"> </div>
       <div id="navbar" class="col-md-10">
         <ul>
-          <li class = "col-md-2"><a href="index.html"> View Music </a></li>
-    	    <li class = "col-md-2"><a id="showAddMusic"> Add Music </a></li>
+          <li class = "col-md-2"><a class="showAddMusic"> View Music </a></li>
+    	    <li class = "col-md-2"><a class="showAddMusic"> Add Music </a></li>
     	    <li class = "col-md-2"><a href="index.html"> Profile   </a></li>
         </ul>
       </div>
       <div class="col-md-1"> </div>
     </div>
   </div>
-
+<!-- ADD MUSIC CONTAINER -->
   <div class="container hidden" id="addMusicField">
-    <input type="text" placeholder="Song Name">
-    <input type="text" placeholder="Artist">
-    <input type="text" placeholder="Album Name">
-    <button type="button"> Add </button>
+    <div class="row">
+      <label for="addSongName" class="newSongLabel"> Song : </label> <input type="text" id="addSongName" class="addMusicInputs col-md-push-4 col-md-3" placeholder="Song Name">
+    </div>
+
+    <div class="row">
+      <label for="addArtistName" class="newSongLabel"> Artist : </label> <input type="text" id="addArtistName" class="addMusicInputs col-md-push-4 col-md-3" placeholder="Artist">
+    </div>
+
+    <div class="row">
+      <label for="addAlbumName" class="newSongLabel"> Album : </label> <input type="text" id="addAlbumName" class="addMusicInputs col-md-push-4 col-md-3" placeholder="Album Name">
+    </div>
+
+    <div class="row">
+
+      <label for="addGenreName" class ="newSongLabel"> Genre : </label>
+      <select name="genreList" id="genreList" class="col-md-push-4 col-md-3">
+        <option value="Alt"> Alt </option>
+        <option value="Country"> Country </option>
+        <option value="Classical"> Classical </option>
+        <option value="Hip-Hop"> Hip-Hop </option>
+        <option value="Pop"> Pop </option>
+        <option value="Rock"> Rock </option>
+      </select>
+
+    </div>
+
+    <div class="row">
+      <button type="button" id="addSong" class="addMusicInputs col-md-push-4 col-md-2"> Add </button>
+    </div>
+
   </div>
+<!-- END OF ADD MUSIC -->
+
 
 <!-- MAIN CONTAINER HAS OPTIONS AND SONG LIST -->
   <div class="container" id="mainContainer">
@@ -57,27 +85,35 @@
       <label for="genreDiv"> Genre: </label>
       <div name="genreDiv" id="genreDiv">
 
-      <div class="row">
+        <div class="genre">
+          <input type="radio" name="rock">
+          <label class="lineOfGenre" for="rock">Rock</label>
+        </div>
 
-        <div class="col-sm-1"> </div>
-        <label class="radio-inline lineOfGenre"><input type="radio" name="genre"> Rock </label>
-        <label class="radio-inline lineOfGenre"><input type="radio" name="genre">Classical </label>
+        <div class="genre">
+          <input type="radio" name="classical" class="genre">
+          <label class="lineOfGenre" for="classical">Classical</label>
+        </div>
 
-      </div>
+        <div class="genre">
+          <input type="radio" name="alt" class="genre">
+          <label class="lineOfGenre" for="alt">Alt</label>
+        </div>
 
-      <div class="row">
+        <div class="genre">
+          <input type="radio" name="country" class="genre">
+          <label class="lineOfGenre" for="country">Country</label>
+        </div>
 
-        <div class="col-sm-1"> </div>
-        <label class="radio-inline lineOfGenre"><input type="radio" name="genre"> Alt</label>
-        <label class="radio-inline lineOfGenre"><input type="radio" name="genre"> Country</label>
+        <div ="genre">
+          <input type="radio" name="genre" class="genre">
+          <label class="lineOfGenre">Pop</label>
+        </div>
 
-      </div>
-
-      <div class="row">
-
-        <div class="col-sm-1"> </div>
-        <label class="radio-inline lineOfGenre"><input type="radio" name="genre"> Pop </label>
-        <label class="radio-inline lineOfGenre"><input type="radio" name="genre"> Hip-Hop </label>
+        <div class="genre">
+          <input type="radio" name="genre" class="genre">
+          <label class="lineOfGenre">Hip-Hop</label>
+        </div>
 
       </div>
 
@@ -97,7 +133,7 @@
 
     </section>
   </div>
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="songs.js"> </script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="dist/app.js"></script>
 </body>
 </html>
