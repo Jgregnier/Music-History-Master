@@ -4,6 +4,11 @@
     "album"    : "Live at the Old Quarter",
     "genre"    : "Country"
   },
+  { "songName" : "Requiem",
+    "artist"   : "Wolfgang Amadeus Mozart",
+    "album"    : "The Requiem Mass",
+    "genre"    : "Classical"
+  },
   { "songName" : "Neon Bible",
     "artist"   : "Arcade Fire",
     "album"    : "Neon Bible",
@@ -17,7 +22,7 @@
   { "songName" : "Give It Up",
     "artist"   : "KC and the Sunshine Band",
     "album"    : "All in a Night's Work",
-    "genre"    : "pop"
+    "genre"    : "Pop"
   },
   {
     "songName" : "Blue Monday",
