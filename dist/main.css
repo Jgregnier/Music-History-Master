@@ -1,0 +1,48 @@
+#navbar {
+  background-color: #FFB4B0;
+  margin: 8px;
+  padding: 10px;
+  border: solid black 2px; }
+
+#addMusicField {
+  display: block; }
+
+.addMusicInputs {
+  border: solid black 1px;
+  margin: 10px; }
+
+#genreList {
+  margin: 10px; }
+
+.newSongLabel {
+  margin: 10px; }
+
+#mainContainer {
+  margin: 0px;
+  padding: 0px; }
+
+#optionsSideBar {
+  background-color: #4DD7FA;
+  border: solid black 2px;
+  padding: 8px;
+  margin-right: 10px; }
+
+#artistList {
+  width: 125px; }
+
+#albumList {
+  width: 118px; }
+
+#songList {
+  background-color: #FEFAC0;
+  border: solid black 2px;
+  padding: 8px; }
+
+ul {
+  list-style-type: none; }
+
+.songName {
+  color: #785616;
+  margin: 10px; }
+
+/*# sourceMappingURL=main.css.map */

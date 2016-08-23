@@ -1,8 +1,10 @@
+"use strict";
+
 var makeNewSong = function () {
 
-  var getSongList = $.ajax("songList.json").done(function () {
+  var getSongList = $.ajax("songList.json").done(function (data) {
 
-    var songs = songList.responseJSON;
+    var songs = data.responseJSON;
 
     var addSongName = $("#addSongName").val();
     var addArtistName = $("#addArtistName").val();
@@ -31,7 +33,8 @@ var makeNewSong = function () {
     var self = (event.target);
     var selfParents = $(self).parents("div.songInfo");
     $(selfParents).remove();
-  })
+    });
+  });
+};
 
-   })
-}
+module.exports = makeNewSong;
