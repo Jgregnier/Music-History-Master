@@ -4,7 +4,7 @@
 var populateArtist = function(artistList) {
 for (let i = 0; i < artistList.length; i++){
   $("#artistList").append(
-      `<option value:"${artistList[i]}"> ${artistList[i]} </option>`
+      `<option value="${artistList[i].replace(/ /g, "")}"> ${artistList[i]} </option>`
     );
   }
 };
@@ -12,7 +12,7 @@ for (let i = 0; i < artistList.length; i++){
 var populateAlbum = function(albumList) {
   for (let i = 0; i < albumList.length; i++){
   $("#albumList").append(
-      `<option value:"${albumList[i]}"> ${albumList[i]} </option>`
+      `<option value="${albumList[i].replace(/ /g, "")}"> ${albumList[i]} </option>`
     );
   }
 };
@@ -20,12 +20,12 @@ var populateAlbum = function(albumList) {
 var populateGenre = function(genreList) {
   for (let i = 0; i < genreList.length; i++){
     $("#genreList").append(
-      `<option value:"${genreList[i]}"> ${genreList[i]} </option>`
+      `<option value="${genreList[i].replace(/ /g, "")}"> ${genreList[i]} </option>`
     );
 
     $("#genreDiv").append(`
       <div class="genre">
-        <input type="radio" name="genre" class="genre" value="${genreList[i]}">
+        <input type="radio" name="genre" class="genre" value="${genreList[i].replace(/ /g, "")}">
         <label class="lineOfGenre" for="${genreList[i]}">${genreList[i]}</label>
       </div>`
     );
@@ -33,9 +33,15 @@ var populateGenre = function(genreList) {
 };
 
 var addFiltering = function () {
-  $("#filterButton").click(function(){
+  $("#filterButton").click(function() {
+    var filteredArtist = $("#artistList :selected").val();
+    var filteredAlbum = $("#albumList :selected").val();
+    var filteredGenre = $("#genreDiv :checked").val();
+
+    $("#songList").children().addClass('hidden');
 
   });
 };
 
-module.exports = {addFiltering, populateArtist, populateAlbum, populateGenre};
+module.exports = {populateArtist, populateAlbum, populateGenre};
+

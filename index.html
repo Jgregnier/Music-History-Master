@@ -38,11 +38,8 @@
     </div>
 
     <div class="row">
-
       <label for="addGenreName" class ="newSongLabel"> Genre : </label>
-      <select name="addGenreName" id="genreList" class="addMusicInputs col-md-push-4 col-md-3">
-      </select>
-
+      <select name="addGenreName" id="genreList" class="addMusicInputs col-md-push-4 col-md-3"></select>
     </div>
 
     <div class="row">
@@ -66,13 +63,13 @@
 <!-- Artist scrolling list -->
       <label for="artistList"> Artist:</label>
       <select name="artistList" id="artistList">
-        <option value:"ShowAll"> Show All </option>
+        <option value="ShowAll"> Show All </option>
       </select>
 
 <!-- albums scrolling list -->
       <label for="albumList"> Album: </label>
       <select name="albumList" id="albumList">
-        <option value:"ShowAll"> Show All </option>
+        <option value="ShowAll"> Show All </option>
       </select>
 
 <!-- Genre selector butttons "Rock", "Classical", "Alt", "Country", "Pop", "Hip-Hop" -->
@@ -88,10 +85,8 @@
       <button type="button" id="filterButton" class="btn btn-primary"> Filter </button>
     </section>
 
-
 <!-- SONGS AND SONG INFO -->
     <section class="col-md-8" id="songList">
-<!-- Song Name, Artist Name, Album Name, Genre Dynamicaly created here -->
     </section>
   </div>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>

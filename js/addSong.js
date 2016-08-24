@@ -1,40 +1,43 @@
 "use strict";
 
+var reLoadSongs = require('./generateSongs');
+
+var newSong = null;
+
 var makeNewSong = function () {
-
-  var getSongList = $.ajax("songList.json").done(function (data) {
-
-    var songs = data.responseJSON;
 
     var addSongName = $("#addSongName").val();
     var addArtistName = $("#addArtistName").val();
     var addAlbumName =  $("#addAlbumName").val();
     var addGenreName =  $("#genreList").val();
 
-    $("#songList").append(
-        `<div class="songInfo">
-          <h1 class="songName"> ${addSongName} </h1>
-          <div class="row">
-            <ul>
-              <li class="artistName col-sm-3"> ${addArtistName} </li>
-              <li class="albumName col-sm-3"> ${addAlbumName} </li>
-              <li class="genreSongInfo col-sm-2"> ${addGenreName} </li>
-              <button class="removeSong btn btn-danger col-sm-3"> Remove Song </button>
-            </ul>
-          </div>
-        </div>`);
-
-    $("#addSongName").val("");
-    $("#addArtistName").val("");
-    $("#addAlbumName").val("");
-    $("#genreList").val("");
-
-    $(".removeSong").click(function (event) {
-    var self = (event.target);
-    var selfParents = $(self).parents("div.songInfo");
-    $(selfParents).remove();
-    });
-  });
+    newSong =
+      { "songName" : `${addSongName}`,
+        "artist"   : `${addArtistName}`,
+        "album"    : `${addAlbumName}`,
+        "genre"    : `${addGenreName}`
+      };
+    console.log("song in make new song func", newSong);
+    return newSong;
 };
 
-module.exports = makeNewSong;
+var addNewSongToFirebase = function (newsong) {
+console.log("song after make new song func", newSong);
+
+    $.ajax({
+      url: 'https://musichistory-9d69b.firebaseio.com/songs.json',
+      type: 'POST',
+      data: JSON.stringify(newSong),
+      dataType: "json"
+    }).done(function(){
+      console.log("your song has been posted");
+      location.reload();
+    });
+
+  $("#addSongName").val("");
+  $("#addArtistName").val("");
+  $("#addAlbumName").val("");
+  $("#genreList").val("");
+};
+
+module.exports = {makeNewSong, addNewSongToFirebase};

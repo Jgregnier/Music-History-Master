@@ -4,42 +4,42 @@ var activateEvents = require('./events');
 var addFiltering = require('./filtering');
 
 var songArray = [];
+var keyArray = [];
 
-var loadSongs = function () {
-  $.ajax("songList.json").done(function (data) {
-    songArray = data.songs;
-    populateSongs(songArray);
-    return songArray;
+var getSongsFromBase = function() {
+  $.ajax({
+    url: 'https://musichistory-9d69b.firebaseio.com/songs.json'
+  }).done(function(songData){
+    populateSongs(songData);
   });
 };
 
-var getSongs = function () {
-  return songArray;
-};
-
-var populateSongs = function (songArray) {
+var populateSongs = function (songData) {
   var artistList = [];
   var albumList = [];
   var genreList = [];
 
-  for(let i = 0; i < songArray.length; i++) {
+  $.each(songData, function (key, value){
     $("#songList").append(
-      `<div class="songInfo">
-        <h1 class="songName"> ${songArray[i].songName} </h1>
+      `<div class="songInfo showAll ${value.artist.replace(/ /g, "")} ${value.album.replace(/ /g, "")} ${value.genre}">
+        <h1 class="songName"> ${value.songName} </h1>
         <div class="row">
           <ul>
-            <li class="artistName col-sm-3"> ${songArray[i].artist}</li>
-            <li class="albumName col-sm-3"> ${songArray[i].album} </li>
-            <li class="genreSongInfo col-sm-2"> ${songArray[i].genre} </li>
+            <li class="artistName col-sm-3"> ${value.artist}</li>
+            <li class="albumName col-sm-3"> ${value.album} </li>
+            <li class="genreSongInfo col-sm-2"> ${value.genre} </li>
             <button class="removeSong btn btn-danger col-sm-3"> Remove Song </button>
           </ul>
         </div>
       </div>`);
 
-    artistList.push(songArray[i].artist);
-    albumList.push(songArray[i].album);
-    genreList.push(songArray[i].genre);
-  }
+    artistList.push(value.artist);
+    albumList.push(value.album);
+    genreList.push(value.genre);
+
+    keyArray.push(key);
+    songArray.push(value);
+  });
 
   function unique(array) {
   var result = [];
@@ -53,8 +53,18 @@ var populateSongs = function (songArray) {
   addFiltering.populateAlbum(unique(albumList).sort());
   addFiltering.populateGenre(unique(genreList).sort());
 
-  addFiltering.addFiltering();
+  console.log(keyArray);
+  console.log(songArray);
   activateEvents();
 };
 
-loadSongs();
+var getData = function() {
+  console.log(keyArray, songArray);
+  return keyArray;
+};
+
+getSongsFromBase();
+
+module.exports = {getSongsFromBase, getData, populateSongs};
+
+

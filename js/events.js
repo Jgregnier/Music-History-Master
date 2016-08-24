@@ -1,6 +1,6 @@
 "use strict";
 
-var makeNewSong = require('./addSong');
+var songAdder = require('./addSong');
 
 var addRemoveSongEvents = function () {
 
@@ -13,7 +13,8 @@ var addRemoveSongEvents = function () {
     if (!($("#addSongName").val()) || !($("#addArtistName").val()) || !($("#addAlbumName").val())) {
       alert("You have to input a new song!");
     } else {
-      makeNewSong();
+      songAdder.makeNewSong();
+      songAdder.addNewSongToFirebase();
     }
   });
 
