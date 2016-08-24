@@ -65,9 +65,15 @@ var addRemoveSongEvents = function () {
   });
 
   $(".removeSong").click(function (event) {
-	  var self = (event.target);
-	  var selfParents = $(self).parents("div.songInfo");
-    $(selfParents).remove();
+    var thisID = $(this).attr('id');
+
+    $.ajax({
+      url: `https://musichistory-9d69b.firebaseio.com/songs/${thisID}.json`,
+      method: "DELETE"
+    }).done(function () {
+      console.log("your song has been deleted");
+      location.reload();
+    });
   });
 };
 
@@ -114,12 +120,18 @@ var addFiltering = function () {
     var filteredAlbum = $("#albumList :selected").val();
     var filteredGenre = $("#genreDiv :checked").val();
 
-    $("#songList").children().addClass('hidden');
+    var songs = $(".showAll");
 
+    songs.children().addClass('hidden');
+
+    songs.each(function () {
+      if(($(this).hasClass(`${filteredArtist}`) || ($(this).hasClass(`${filteredAlbum}`)) || ($(this).hasClass(`${filteredGenre}`)))){
+        $(this).children().removeClass('hidden');
+      }
+    });
   });
 };
-
-module.exports = {populateArtist, populateAlbum, populateGenre};
+module.exports = {populateArtist, populateAlbum, populateGenre, addFiltering};
 
 
 },{}],4:[function(require,module,exports){
@@ -153,7 +165,7 @@ var populateSongs = function (songData) {
             <li class="artistName col-sm-3"> ${value.artist}</li>
             <li class="albumName col-sm-3"> ${value.album} </li>
             <li class="genreSongInfo col-sm-2"> ${value.genre} </li>
-            <button class="removeSong btn btn-danger col-sm-3"> Remove Song </button>
+            <button id = "${key}" class="removeSong btn btn-danger col-sm-3"> Remove Song </button>
           </ul>
         </div>
       </div>`);
@@ -177,6 +189,7 @@ var populateSongs = function (songData) {
   addFiltering.populateArtist(unique(artistList).sort());
   addFiltering.populateAlbum(unique(albumList).sort());
   addFiltering.populateGenre(unique(genreList).sort());
+  addFiltering.addFiltering();
 
   console.log(keyArray);
   console.log(songArray);

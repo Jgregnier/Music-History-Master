@@ -38,10 +38,16 @@ var addFiltering = function () {
     var filteredAlbum = $("#albumList :selected").val();
     var filteredGenre = $("#genreDiv :checked").val();
 
-    $("#songList").children().addClass('hidden');
+    var songs = $(".showAll");
 
+    songs.children().addClass('hidden');
+
+    songs.each(function () {
+      if(($(this).hasClass(`${filteredArtist}`) || ($(this).hasClass(`${filteredAlbum}`)) || ($(this).hasClass(`${filteredGenre}`)))){
+        $(this).children().removeClass('hidden');
+      }
+    });
   });
 };
-
-module.exports = {populateArtist, populateAlbum, populateGenre};
+module.exports = {populateArtist, populateAlbum, populateGenre, addFiltering};
 

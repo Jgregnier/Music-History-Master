@@ -19,9 +19,15 @@ var addRemoveSongEvents = function () {
   });
 
   $(".removeSong").click(function (event) {
-	  var self = (event.target);
-	  var selfParents = $(self).parents("div.songInfo");
-    $(selfParents).remove();
+    var thisID = $(this).attr('id');
+
+    $.ajax({
+      url: `https://musichistory-9d69b.firebaseio.com/songs/${thisID}.json`,
+      method: "DELETE"
+    }).done(function () {
+      console.log("your song has been deleted");
+      location.reload();
+    });
   });
 };
 

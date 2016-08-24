@@ -63,21 +63,24 @@
 <!-- Artist scrolling list -->
       <label for="artistList"> Artist:</label>
       <select name="artistList" id="artistList">
-        <option value="ShowAll"> Show All </option>
+        <option value="--"> -- </option>
       </select>
 
 <!-- albums scrolling list -->
       <label for="albumList"> Album: </label>
       <select name="albumList" id="albumList">
-        <option value="ShowAll"> Show All </option>
+        <option value="--"> -- </option>
       </select>
 
 <!-- Genre selector butttons "Rock", "Classical", "Alt", "Country", "Pop", "Hip-Hop" -->
       <label for="genreDiv"> Genre: </label>
       <div name="genreDiv" id="genreDiv">
         <div class="genre">
-          <input type="radio" name="genre" class="genre" value="ShowAll">
-          <label class="lineOfGenre" for="ShowAll">Show All</label>
+          <input type="radio" name="genre" class="genre" value="showAll">
+          <label class="lineOfGenre" for="ShowAll">Show All</label> <br>
+
+          <input type="radio" name="genre" class="genre" value="any">
+          <label class="lineOfGenre" for="any">Any</label>
         </div>
       </div>
 

@@ -28,7 +28,7 @@ var populateSongs = function (songData) {
             <li class="artistName col-sm-3"> ${value.artist}</li>
             <li class="albumName col-sm-3"> ${value.album} </li>
             <li class="genreSongInfo col-sm-2"> ${value.genre} </li>
-            <button class="removeSong btn btn-danger col-sm-3"> Remove Song </button>
+            <button id = "${key}" class="removeSong btn btn-danger col-sm-3"> Remove Song </button>
           </ul>
         </div>
       </div>`);
@@ -52,6 +52,7 @@ var populateSongs = function (songData) {
   addFiltering.populateArtist(unique(artistList).sort());
   addFiltering.populateAlbum(unique(albumList).sort());
   addFiltering.populateGenre(unique(genreList).sort());
+  addFiltering.addFiltering();
 
   console.log(keyArray);
   console.log(songArray);
